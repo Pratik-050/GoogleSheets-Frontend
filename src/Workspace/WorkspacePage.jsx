@@ -1,11 +1,12 @@
 import FuncButton from "./FuncButton";
 import LoginAvatar from "./LoginAvatar";
 import ShareButton from "./ShareButton";
+import Table from "./Table";
 
 export default function WorkspacePage() {
   return (
     <div>
-      <navbar className="flex p-4 border-b-2 border-gray-200 w-screen">
+      <navbar className="flex fixed top-0 z-10 p-4 border-b-4 bg-white border-gray-200 w-full">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1498px-Google_Sheets_logo_%282014-2020%29.svg.png"
           alt="logo"
@@ -25,6 +26,7 @@ export default function WorkspacePage() {
         <ShareButton />
         <LoginAvatar />
       </navbar>
+      <Table />
     </div>
   );
 }

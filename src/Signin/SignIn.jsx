@@ -17,10 +17,10 @@ export default function SignIn() {
   };
   return (
     <>
-      <div className="flex flex-col h-screen items-center  bg-green-300 justify-center ">
+      <div className="flex flex-col h-screen items-center  bg-white justify-center ">
         <form
           onSubmit={submitHandler}
-          className="border border-black bg-white rounded-lg p-4"
+          className="shadow-2xl bg-white rounded-lg p-4"
         >
           <h1 className="font-bold text-center text-2xl">Sign-In</h1>
 
@@ -46,7 +46,7 @@ export default function SignIn() {
             type="submit"
             className=" border-b-8 border-blue-600 bg-blue-500 text-center text-white font-bold p-2 my-4 w-full rounded-xl hover:bg-blue-600 hover:duration-200"
           >
-            SIGN-UP
+            SIGN-IN
           </button>
           <h1 className="font-semibold text-center text-gray-300 my-4">
             _______OR_______

@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import FuncButton from "./FuncButton";
 import LoginAvatar from "./LoginAvatar";
 import ShareButton from "./ShareButton";
 import Table from "./Table";
+import AuthContext from "../Store/AuthContext";
+import SignInButton from "./SignInButton";
+import SignOutButton from "./SignOutButton";
 
 export default function WorkspacePage() {
+  const authContext = useContext(AuthContext);
   return (
     <div>
       <navbar className="flex fixed top-0 z-10 p-4 border-b-4 bg-white border-gray-200 w-full">
@@ -23,8 +28,9 @@ export default function WorkspacePage() {
             <FuncButton />
           </div>
         </div>
-        <ShareButton />
-        <LoginAvatar />
+        {authContext.isLoggedIn ? <ShareButton /> : <SignInButton />}
+        {authContext.isLoggedIn && <SignOutButton />}
+        {authContext.isLoggedIn && <LoginAvatar />}
       </navbar>
       <Table />
     </div>

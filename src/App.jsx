@@ -1,16 +1,22 @@
 import "./App.css";
 import Login from "./Login/Login";
 import SignIn from "./Signin/SignIn";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import WorkspacePage from "./Workspace/WorkspacePage";
+import { useContext } from "react";
+import AuthContext from "./Store/AuthContext";
 
 export default function App() {
+  const authContext = useContext(AuthContext);
   return (
     <div>
       <Routes>
         <Route path="/" element={<Login />} exact />
         <Route path="/workspace" element={<WorkspacePage />} exact />
-        <Route path="/signup" element={<SignIn />} exact />
+        {!authContext.isLoggedIn && (
+          <Route path="/signup" element={<SignIn />} exact />
+        )}
+        <Route path="*" element={<Navigate to="/" />}></Route>
       </Routes>
     </div>
   );

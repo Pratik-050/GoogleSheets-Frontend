@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import FuncButton from "./FuncButton";
 import LoginAvatar from "./LoginAvatar";
 import ShareButton from "./ShareButton";
@@ -6,9 +6,14 @@ import Table from "./Table";
 import AuthContext from "../Store/AuthContext";
 import SignInButton from "./SignInButton";
 import SignOutButton from "./SignOutButton";
+import ColourButton from "./ColourButton";
 
 export default function WorkspacePage() {
   const authContext = useContext(AuthContext);
+  const [colour, setColour] = useState("white");
+  const colourHandler = (colour) => {
+    setColour(colour);
+  };
   return (
     <div>
       <navbar className="flex fixed top-0 z-10 p-4 border-b-4 bg-white border-gray-200 w-full">
@@ -26,6 +31,7 @@ export default function WorkspacePage() {
           />
           <div>
             <FuncButton />
+            <ColourButton onColourChange={colourHandler} />
           </div>
         </div>
         {authContext.isLoggedIn ? <ShareButton /> : <SignInButton />}

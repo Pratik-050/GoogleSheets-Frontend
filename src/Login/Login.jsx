@@ -15,7 +15,7 @@ export default function Login() {
         </h1>
       </navbar>
 
-      <body className="p-4 max-w-2xl md:max-w-[80%] mx-auto flex flex-col md:flex-row">
+      <body className="p-4 max-w-2xl md:max-w-[80%] lg:mt-24 mx-auto flex flex-col md:flex-row">
         <div className="text-center">
           <h5 className="font-semi-bold text-4xl text-center max-w-sm mt-12 mx-auto md:text-6xl md:max-w-lg ">
             Make data-driven dicisions, in MERN Sheets

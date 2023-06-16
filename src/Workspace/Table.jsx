@@ -3,7 +3,7 @@ import { Spreadsheet } from "react-spreadsheet";
 
 export default function Table() {
   const [data, setData] = useState(
-    Array(100)
+    Array(26)
       .fill(0)
       .map((row, index) => new Array(26).fill("Row" + (index + 1)))
   );

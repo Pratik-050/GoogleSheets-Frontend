@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import FuncButton from "./FuncButton";
 import LoginAvatar from "./LoginAvatar";
 import ShareButton from "./ShareButton";
-import Table from "./Table";
 import AuthContext from "../Store/AuthContext";
 import SignInButton from "./SignInButton";
 import SignOutButton from "./SignOutButton";
 import ColourButton from "./ColourButton";
+import SheetContainer from "../Table/containers/SheetsContainer";
 
 export default function WorkspacePage() {
   const authContext = useContext(AuthContext);
@@ -16,7 +16,7 @@ export default function WorkspacePage() {
   };
   return (
     <div>
-      <navbar className="flex fixed top-0 z-10 p-4 border-b-4 bg-white border-gray-200 w-full">
+      <navbar className="flex fixed top-0 z-10 p-4 border-b-2 bg-white border-gray-200 w-full">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1498px-Google_Sheets_logo_%282014-2020%29.svg.png"
           alt="logo"
@@ -38,7 +38,7 @@ export default function WorkspacePage() {
         {authContext.isLoggedIn && <SignOutButton />}
         {authContext.isLoggedIn && <LoginAvatar />}
       </navbar>
-      <Table />
+      <SheetContainer />
     </div>
   );
 }

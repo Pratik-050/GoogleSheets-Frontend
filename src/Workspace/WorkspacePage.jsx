@@ -10,9 +10,10 @@ import SheetContainer from "../Table/containers/SheetsContainer";
 
 export default function WorkspacePage() {
   const authContext = useContext(AuthContext);
-  const [colour, setColour] = useState("white");
-  const colourHandler = (colour) => {
-    setColour(colour);
+  const [cellColor, setCellColor] = useState("white");
+
+  const handleColorChange = (selectedColor) => {
+    setCellColor(selectedColor);
   };
   return (
     <div>
@@ -31,7 +32,7 @@ export default function WorkspacePage() {
           />
           <div>
             <FuncButton />
-            <ColourButton onColourChange={colourHandler} />
+            <ColourButton onColourChange={handleColorChange} />
           </div>
         </div>
         {authContext.isLoggedIn ? <ShareButton /> : <SignInButton />}

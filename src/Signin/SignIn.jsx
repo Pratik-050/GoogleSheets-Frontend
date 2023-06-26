@@ -22,17 +22,15 @@ export default function SignIn() {
     setIsLoading(true);
     let url;
     if (!createAccount) {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyARFZ2pPAohngZek1tEFP8zTNfY_5Pvlh4 ";
+      url = "https://googlesheets-backend.onrender.com/login";
     } else {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyARFZ2pPAohngZek1tEFP8zTNfY_5Pvlh4 ";
+      url = "https://googlesheets-backend.onrender.com/register ";
     }
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
-        email: enteredEmail,
-        password: enteredPassword,
+        user: enteredEmail,
+        pwd: enteredPassword,
         returnSecureToken: true,
       }),
       headers: {
@@ -55,7 +53,7 @@ export default function SignIn() {
         Navigate("/workspace");
       })
       .catch((err) => {
-        alert(err.message);
+        alert("authentication failed!!!");
       });
   };
   return (

@@ -9,7 +9,7 @@ function SignInButton() {
   return (
     <div className="ml-auto">
       <button
-        className="bg-blue-300 rounded-3xl w-24 text-black p-2 mt-2"
+        className="bg-blue-300 rounded-3xl w-16 text-sm lg:text-lg lg:w-24 text-black p-2 mt-2"
         onClick={navigationHandler}
       >
         Sign-In

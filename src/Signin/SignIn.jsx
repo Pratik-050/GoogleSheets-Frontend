@@ -1,6 +1,7 @@
 import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../Store/AuthContext";
+import GoogleButton from "./GoogleButton";
 
 export default function SignIn() {
   const Navigate = useNavigate();
@@ -58,10 +59,10 @@ export default function SignIn() {
   };
   return (
     <>
-      <div className="flex flex-col h-screen items-center  bg-white justify-center ">
+      <div className="flex flex-col h-screen lg:w-full w-[90%] mx-auto items-center bg-white justify-center ">
         <form
           onSubmit={submitHandler}
-          className="shadow-2xl bg-white rounded-lg p-4"
+          className=" shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] bg-white rounded-lg p-4"
         >
           <h1 className="font-bold text-center text-2xl">
             {!createAccount ? "Sign-In" : "Sign-Up"}
@@ -98,16 +99,7 @@ export default function SignIn() {
           <h1 className="font-semibold text-center text-gray-300 my-4">
             _______OR_______
           </h1>
-          <button className="border border-gray-400 font-bold text-center py-4 my-4 w-full rounded-xl">
-            <span className="flex justify-center">
-              <img
-                src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_google_icon_143197.png"
-                alt="G"
-                className="w-6 mr-2"
-              />
-              Authorize with Google
-            </span>
-          </button>
+          <GoogleButton />
           <button
             type="button"
             onClick={createAccountHandler}

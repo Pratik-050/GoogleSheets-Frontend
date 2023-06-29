@@ -17,17 +17,17 @@ export default function WorkspacePage() {
   };
   return (
     <div>
-      <navbar className="flex fixed top-0 z-10 p-4 border-b-2 bg-white border-gray-200 w-full">
+      <navbar className="flex fixed top-0 x-overflow-hidden z-10 p-4 border-b-2 bg-white border-gray-200 w-full">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1498px-Google_Sheets_logo_%282014-2020%29.svg.png"
           alt="logo"
-          className="w-10 mr-2"
+          className="lg:w-10 w-8 mr-2"
         />
         <div className="flex flex-col">
           <input
             name="sheetName"
             type="text"
-            className="placeholder:text-md placeholder:text-black text-xl placeholder:border-0"
+            className="placeholder:text-md placeholder:text-black text-md lg:text-xl placeholder:border-0"
             placeholder="Untitled spreadsheet"
           />
           <div>

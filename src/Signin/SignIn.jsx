@@ -51,7 +51,7 @@ export default function SignIn() {
       })
       .then((data) => {
         authContext.login(data.idToken, data.email);
-        Navigate("/workspace");
+        Navigate("/profile");
       })
       .catch((err) => {
         alert("authentication failed!!!");

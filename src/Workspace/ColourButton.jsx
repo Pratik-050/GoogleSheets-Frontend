@@ -1,19 +1,25 @@
 import React from "react";
-import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { CellColorState } from "../Table/store/CellColorState";
 
 const ColourButton = (props) => {
+  const [cellColor, setCellColor] = useRecoilState(CellColorState);
   const handleColorChange = (event) => {
     const selectedColor = event.target.value;
-    props.onColourChange(selectedColor);
+    setCellColor(selectedColor);
   };
 
   return (
     <div className="relative inline-block mx-2 ">
-      <select className="p-2 rounded-lg" onChange={handleColorChange}>
+      <select
+        className="p-2 rounded-lg"
+        value={cellColor}
+        onChange={handleColorChange}
+      >
         <option value="white">white</option>
-        <option value="red">red</option>
-        <option value="blue">blue</option>
-        <option value="green">green</option>
+        <option value="#ffcccb">red</option>
+        <option value="#87ceeb">blue</option>
+        <option value="#90ee90">green</option>
         <option value="yellow">yellow</option>
       </select>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { CellValueState } from "../../store/CellValueState";
+
 import classes from "./Cell.module.css";
 import { EvaluatedCellValueState } from "../../store/EvaluatedCellValueState";
 
@@ -113,6 +114,7 @@ function Cell(props) {
       className={classes.CellLabel}
       onClick={changeLabelToInput}
       data-cell-id={props.cellId}
+      style={{ backgroundColor: props.cellColor }}
     >
       {evaluatedCellValueState}
     </div>

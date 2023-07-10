@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import FuncButton from "./FuncButton";
+import { useContext, useRef } from "react";
 import LoginAvatar from "./LoginAvatar";
 import ShareButton from "./ShareButton";
 import AuthContext from "../Store/AuthContext";
@@ -10,11 +9,29 @@ import SheetContainer from "../Table/containers/SheetsContainer";
 
 export default function WorkspacePage() {
   const authContext = useContext(AuthContext);
-  const [cellColor, setCellColor] = useState("white");
+  const inputRef = useRef();
 
-  const handleColorChange = (selectedColor) => {
-    setCellColor(selectedColor);
+  const saveHandler = () => {
+    const sheetName = inputRef.current.value;
+    fetch("https://googlesheets-backend.onrender.com/sheet", {
+      method: "POST",
+      body: JSON.stringify({
+        name: sheetName,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          alert("Name saved");
+        }
+      })
+      .catch((err) => {
+        alert("something went wrong!");
+      });
   };
+
   return (
     <div>
       <navbar className="flex fixed top-0 x-overflow-hidden z-10 p-4 border-b-2 bg-white border-gray-200 w-full">
@@ -27,12 +44,20 @@ export default function WorkspacePage() {
           <input
             name="sheetName"
             type="text"
+            ref={inputRef}
             className="placeholder:text-md placeholder:text-black text-md lg:text-xl placeholder:border-0"
             placeholder="Untitled spreadsheet"
           />
           <div>
-            <FuncButton />
-            <ColourButton onColourChange={handleColorChange} />
+            {authContext.isLoggedIn && (
+              <button
+                className="bg-gray-200 mr-2 rounded-lg p-1"
+                onClick={saveHandler}
+              >
+                Save-Name
+              </button>
+            )}
+            <ColourButton />
           </div>
         </div>
         {authContext.isLoggedIn ? <ShareButton /> : <SignInButton />}

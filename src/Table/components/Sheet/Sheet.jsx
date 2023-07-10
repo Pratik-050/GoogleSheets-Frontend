@@ -7,9 +7,11 @@ import "./Sheet.css";
 import { useRecoilValue } from "recoil";
 import { SheetSizeState } from "../../store/SheetSizeState";
 import { numberToChar } from "../../utils/numberToChar";
+import { CellColorState } from "../../store/CellColorState";
 
 const Sheet = (props) => {
   const sheetSize = useRecoilValue(SheetSizeState);
+  const cellColor = useRecoilValue(CellColorState);
 
   const numberOfColumns = Math.ceil(sheetSize.width / CELL_WIDTH);
   const numberOfRows = Math.ceil(sheetSize.height / CELL_HEIGHT);
@@ -34,7 +36,10 @@ const Sheet = (props) => {
               <AxisCell>{rowIndex + 1}</AxisCell>
               {[...Array(numberOfColumns)].map((column, columnIndex) => (
                 <Column key={columnIndex}>
-                  <Cell cellId={`${rowIndex},${columnIndex}`} />
+                  <Cell
+                    cellId={`${rowIndex},${columnIndex}`}
+                    cellColor={cellColor}
+                  />
                 </Column>
               ))}
             </Row>

@@ -1,14 +1,12 @@
-import React from "react";
-import { useRecoilState } from "recoil";
-import { CellColorState } from "../Table/store/CellColorState";
+import React, { useState } from "react";
 
-const ColourButton = (props) => {
-  const [cellColor, setCellColor] = useRecoilState(CellColorState);
+function ColorCell(props) {
+  const [cellColor, setCellColor] = useState("white");
   const handleColorChange = (event) => {
     const selectedColor = event.target.value;
     setCellColor(selectedColor);
+    props.onColorChange(selectedColor);
   };
-
   return (
     <div className="relative inline-block mx-2 ">
       <select
@@ -24,6 +22,6 @@ const ColourButton = (props) => {
       </select>
     </div>
   );
-};
+}
 
-export default ColourButton;
+export default ColorCell;

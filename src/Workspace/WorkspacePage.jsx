@@ -4,7 +4,6 @@ import ShareButton from "./ShareButton";
 import AuthContext from "../Store/AuthContext";
 import SignInButton from "./SignInButton";
 import SignOutButton from "./SignOutButton";
-import ColourButton from "./ColourButton";
 import SheetContainer from "../Table/containers/SheetsContainer";
 
 export default function WorkspacePage() {
@@ -57,7 +56,6 @@ export default function WorkspacePage() {
                 Save-Name
               </button>
             )}
-            <ColourButton />
           </div>
         </div>
         {authContext.isLoggedIn ? <ShareButton /> : <SignInButton />}

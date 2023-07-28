@@ -70,7 +70,7 @@ export default function SignIn() {
 
           <h1 className="font-semibold mt-4">Email address</h1>
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder="name@gmail.com"
             className="border border-gray-400 w-full rounded-lg p-2 my-4 "

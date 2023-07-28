@@ -17,6 +17,7 @@ function Cell(props) {
 
   const changeLabelToInput = () => {
     setIsEditMode(true);
+    props.onCellSelect(props.cellId);
   };
 
   const changeInputToLabel = () => {
@@ -108,13 +109,26 @@ function Cell(props) {
       data-cell-id={props.cellId}
       onChange={updateCellValueState}
       // onKeyDown={handleKeyDown}
+      style={{
+        backgroundColor: props.cellColor,
+        color: props.textColor,
+        fontWeight: props.textBold,
+        textDecoration: props.textUnderline,
+        fontStyle: props.textItalic,
+      }}
     />
   ) : (
     <div
       className={classes.CellLabel}
       onClick={changeLabelToInput}
       data-cell-id={props.cellId}
-      style={{ backgroundColor: props.cellColor }}
+      style={{
+        backgroundColor: props.cellColor,
+        color: props.textColor,
+        fontWeight: props.textBold,
+        textDecoration: props.textUnderline,
+        fontStyle: props.textItalic,
+      }}
     >
       {evaluatedCellValueState}
     </div>

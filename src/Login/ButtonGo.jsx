@@ -6,6 +6,7 @@ export default function ButtonGo() {
   const navigate = useNavigate();
   const authContext = useContext(AuthContext);
   const navigationHandler = () => {
+    // eslint-disable-next-line
     {
       authContext.isLoggedIn ? navigate("/workspace") : navigate("/signup");
     }

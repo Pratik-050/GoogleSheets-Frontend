@@ -115,6 +115,7 @@ function Cell(props) {
         fontWeight: props.textBold,
         textDecoration: props.textUnderline,
         fontStyle: props.textItalic,
+        textAlign: props.textAlign,
       }}
     />
   ) : (
@@ -128,6 +129,7 @@ function Cell(props) {
         fontWeight: props.textBold,
         textDecoration: props.textUnderline,
         fontStyle: props.textItalic,
+        textAlign: props.textAlign,
       }}
     >
       {evaluatedCellValueState}

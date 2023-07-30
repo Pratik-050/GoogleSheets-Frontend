@@ -13,6 +13,7 @@ import Menu from "../Menu/Menu";
 const Sheet = (props) => {
   const sheetSize = useRecoilValue(SheetSizeState);
   // const cellColor = useRecoilValue(CellColorState);
+  const [cellTextAligns, setCellTextAligns] = useState({});
   const [cellColors, setCellColors] = useState({});
   const [cellTextColors, setCellTextColors] = useState({});
   const [boldCells, setBoldCells] = useState({});
@@ -64,6 +65,12 @@ const Sheet = (props) => {
     });
   };
 
+  const handleTextAlignChange = (alignment) => {
+    setCellTextAligns((prevCellTextAligns) => {
+      return { ...prevCellTextAligns, [selectedCell]: alignment };
+    });
+  };
+
   const numberOfColumns = Math.ceil(sheetSize.width / CELL_WIDTH);
   const numberOfRows = Math.ceil(sheetSize.height / CELL_HEIGHT);
 
@@ -75,6 +82,7 @@ const Sheet = (props) => {
         onBoldButtonClick={handleBoldButtonClick}
         onUnderlineClick={handleUnderlineButtonClick}
         onItalicClick={handleItalicButtonClick}
+        onTextAlignChange={handleTextAlignChange}
       />
       <div className="SheetWrapper">
         <table className="Sheet">
@@ -111,6 +119,9 @@ const Sheet = (props) => {
                       }
                       textItalic={
                         italicCells[`${rowIndex},${columnIndex}`] || "normal"
+                      }
+                      textAlign={
+                        cellTextAligns[`${rowIndex},${columnIndex}`] || "left"
                       }
                       onCellSelect={handleCellSelect}
                     />

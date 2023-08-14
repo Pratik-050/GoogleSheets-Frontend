@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import Avatar from "react-avatar";
 import AuthContext from "../Store/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProfilePage() {
   const authContext = useContext(AuthContext);
@@ -30,6 +32,7 @@ function ProfilePage() {
       >
         go to workspace
       </button>
+      <ToastContainer />
     </div>
   );
 }

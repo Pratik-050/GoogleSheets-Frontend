@@ -2,6 +2,8 @@ import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../Store/AuthContext";
 import GoogleButton from "./GoogleButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn() {
   const Navigate = useNavigate();
@@ -52,9 +54,12 @@ export default function SignIn() {
       .then((data) => {
         authContext.login(data.idToken, data.email);
         Navigate("/profile");
+        setTimeout(() => {
+          toast.success("logged-in successfully!");
+        }, 1000);
       })
       .catch((err) => {
-        alert("authentication failed!!!");
+        toast.error("wrong password or username!");
       });
   };
   return (
@@ -110,6 +115,7 @@ export default function SignIn() {
               : "Login with existing account"}
           </button>
         </form>
+        <ToastContainer />;
       </div>
     </>
   );

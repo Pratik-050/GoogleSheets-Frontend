@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AuthContext = React.createContext({
   token: "",
@@ -42,7 +44,8 @@ export const AuthContextProvider = (props) => {
       method: "GET",
     })
       .then((data) => {
-        alert("Logged-out sucessfully!");
+        // alert("Logged-out sucessfully!");
+        toast.success("logged-out successfully!");
       })
       .catch(() => {
         alert("user not logged out");

@@ -1,3 +1,5 @@
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ButtonGo from "./ButtonGo";
 import ButtonTry from "./ButtonTry";
 
@@ -39,6 +41,7 @@ export default function Login() {
           className="mt-16 md:max-w-2xl md:ml-auto"
         />
       </body>
+      <ToastContainer />
     </>
   );
 }

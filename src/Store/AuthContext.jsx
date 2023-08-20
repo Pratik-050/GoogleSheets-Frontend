@@ -39,13 +39,16 @@ export const AuthContextProvider = (props) => {
   const logoutHandler = () => {
     setToken(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("profilePic");
     let url = "https://googlesheets-backend.onrender.com/logout";
     fetch(url, {
       method: "GET",
     })
       .then((data) => {
-        // alert("Logged-out sucessfully!");
-        toast.success("logged-out successfully!");
+        setTimeout(() => {
+          toast.success("logged-out successfully!");
+        }, 1000);
       })
       .catch(() => {
         alert("user not logged out");

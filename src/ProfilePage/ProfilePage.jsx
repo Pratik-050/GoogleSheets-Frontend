@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ProfilePage() {
   const authContext = useContext(AuthContext);
+  const pic = localStorage.getItem("profilePic");
   let navigate = useNavigate();
   const routeChange = () => {
     let path = "/workspace";
@@ -19,6 +20,7 @@ function ProfilePage() {
       </h1>
       <div className="mt-36">
         <Avatar
+          src={pic}
           className="shadow-xl"
           name={authContext.email}
           round={true}

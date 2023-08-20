@@ -79,7 +79,6 @@ export default function SignIn() {
             name="email"
             placeholder="name@gmail.com"
             className="border border-gray-400 w-full rounded-lg p-2 my-4 "
-            required
             ref={emailInputRef}
           />
           <h1 className="font-semibold">Password</h1>
@@ -88,7 +87,6 @@ export default function SignIn() {
             name="password"
             placeholder="Password"
             className="border border-gray-400 w-full rounded-lg p-2 my-4 mx-auto"
-            required
             ref={passwordInputRef}
           />
           {isLoading ? (
